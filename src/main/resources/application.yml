@@ -1,0 +1,18 @@
+# Spring configuration
+spring:
+  application:
+    name: it-job-searcher
+  datasource:
+    url: jdbc:postgresql://localhost:5438/it_job_searcher
+    username: it_job_searcher_connect
+    password: it_job_searcher_connect
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    open-in-view: false
+  flyway:
+    enabled: false
+
+# Server configuration
+server:
+  port: 8085

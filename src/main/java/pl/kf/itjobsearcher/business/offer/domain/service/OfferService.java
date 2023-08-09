@@ -1,8 +1,19 @@
 package pl.kf.itjobsearcher.business.offer.domain.service;
 
-public record OfferService() {
+import lombok.extern.slf4j.Slf4j;
+import pl.kf.itjobsearcher.business.offer.domain.model.OfferEntity;
+import pl.kf.itjobsearcher.business.offer.domain.repository.OfferRepository;
+
+@Slf4j
+public record OfferService(
+        OfferRepository offerRepository
+) {
 
     public void createOffer() {
-        // do nothing
+        OfferEntity offerEntity = OfferEntity.builder()
+                .description("Senior Java Developer")
+                .build();
+
+        offerRepository.save(offerEntity);
     }
 }

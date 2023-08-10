@@ -16,4 +16,12 @@ public record OfferService(
 
         offerRepository.save(offerEntity);
     }
+    public void updateOffer(){
+        OfferEntity offerEntity = OfferEntity.builder()
+                .description("Mid C++ Developer")
+                .build();
+
+        offerRepository.save(offerEntity);
+    }
+
 }

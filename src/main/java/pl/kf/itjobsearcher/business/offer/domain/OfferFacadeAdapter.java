@@ -12,4 +12,9 @@ public class OfferFacadeAdapter implements OfferFacade {
     public void createOffer() {
         offerService.createOffer();
     }
+
+    @Override
+    public void updateOffer(){offerService.updateOffer();}
+
+
 }

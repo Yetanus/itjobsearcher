@@ -6,4 +6,6 @@ public interface OfferFacade {
      * TODO Please complete implementation.
      */
     void createOffer();
+    void updateOffer();
+
 }

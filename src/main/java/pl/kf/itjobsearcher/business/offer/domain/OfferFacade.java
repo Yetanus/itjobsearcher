@@ -1,9 +1,11 @@
 package pl.kf.itjobsearcher.business.offer.domain;
 
+import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
+
 public interface OfferFacade {
 
     /**
      * TODO Please complete implementation.
      */
-    void createOffer();
+    void createOffer(CreateOfferCommand createOfferCommand);
 }

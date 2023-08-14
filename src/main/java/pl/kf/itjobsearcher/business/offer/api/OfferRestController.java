@@ -3,10 +3,12 @@ package pl.kf.itjobsearcher.business.offer.api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import pl.kf.itjobsearcher.business.offer.domain.OfferFacade;
+import pl.kf.itjobsearcher.business.offer.dto.request.CreateOfferRequest;
 
 @RestController
 @RequestMapping("/offers")
@@ -17,7 +19,7 @@ public class OfferRestController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public void createOffer() {
-        offerFacade.createOffer();
+    public void createOffer(@RequestBody CreateOfferRequest createOfferRequest) {
+        offerFacade.createOffer(createOfferRequest.toCreateOfferCommand());
     }
 }

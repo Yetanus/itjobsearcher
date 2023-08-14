@@ -9,5 +9,5 @@ CREATE TABLE t_offer (
 -- Create sequence for t_offer
 CREATE SEQUENCE sq_offer
     START WITH 1
-    INCREMENT BY 50
+    INCREMENT BY 1
     OWNED BY t_offer.id;

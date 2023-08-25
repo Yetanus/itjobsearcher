@@ -7,6 +7,10 @@ import pl.kf.itjobsearcher.business.offer.domain.repository.OfferRepository;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
 
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
+
 @Slf4j
 public record OfferService(
         OfferRepository offerRepository
@@ -25,6 +29,15 @@ public record OfferService(
                 .map(OfferMapper::mapToOfferQuery)
                 .orElseThrow(() -> new RuntimeException("Offer not found"));
     }
+
+    public List<OfferQuery> findAllOffers(){
+        return offerRepository.findAll()
+                .stream()
+                .map(OfferMapper::mapToOfferQuery)
+                .filter(Objects::nonNull)
+                .toList();
+    }
+
     public void updateOffer(){
         OfferEntity offerEntity = OfferEntity.builder()
                 .description("Mid C++ Developer")

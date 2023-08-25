@@ -5,6 +5,8 @@ import pl.kf.itjobsearcher.business.offer.domain.service.OfferService;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 public class OfferFacadeAdapter implements OfferFacade {
 
@@ -23,5 +25,8 @@ public class OfferFacadeAdapter implements OfferFacade {
     @Override
     public void updateOffer(){offerService.updateOffer();}
 
-
+    @Override
+    public List<OfferQuery> findAllOffers() {
+        return offerService.findAllOffers();
+    }
 }

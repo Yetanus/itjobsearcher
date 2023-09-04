@@ -24,4 +24,39 @@ public class ItJobSearcherResponseExceptionHandler extends ResponseEntityExcepti
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(List.of("Something is no yes"));
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Object> handleUpdateNotPossible(){
+        return ResponseEntity
+                .status(HttpStatus.METHOD_NOT_ALLOWED)
+                .body(List.of("Update/delete not possible"));
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Object> handleLackOfPermission(){
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(List.of("You are not allowed to perform this operation"));
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Object> handleTimeout(){
+        return ResponseEntity
+                .status(HttpStatus.REQUEST_TIMEOUT)
+                .body(List.of("Timeout. Check connection."));
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Object> handleUnsupportedType(){
+        return ResponseEntity
+                .status(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+                .body(List.of("This media type is not allowed."));
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Object> handleServerProblem(){
+        return ResponseEntity
+                .status(HttpStatus.SERVICE_UNAVAILABLE)
+                .body(List.of("Service didn't respond."));
+    }
 }

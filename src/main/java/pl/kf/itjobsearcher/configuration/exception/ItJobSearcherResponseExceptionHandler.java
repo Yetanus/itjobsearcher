@@ -21,7 +21,7 @@ public class ItJobSearcherResponseExceptionHandler extends ResponseEntityExcepti
     public ErrorResponse handleOfferNotFoundException(ObjectNotFoundException exception, HttpServletRequest request) {
         return ErrorResponse.builder()
                 .uuid(UUID.randomUUID())
-                .timeStamp(LocalDateTime.now())
+                .timestamp(LocalDateTime.now())
                 .requestPath(request.getRequestURI())
                 .message(exception.getMessage())
                 .details(Arrays.toString(exception.getStackTrace()))
@@ -33,7 +33,7 @@ public class ItJobSearcherResponseExceptionHandler extends ResponseEntityExcepti
     public ErrorResponse handleUnexpectedException(Exception exception, HttpServletRequest request) {
         return ErrorResponse.builder()
                 .uuid(UUID.randomUUID())
-                .timeStamp(LocalDateTime.now())
+                .timestamp(LocalDateTime.now())
                 .requestPath(request.getRequestURI())
                 .message(exception.getMessage())
                 .details(Arrays.toString(exception.getStackTrace()))
@@ -45,7 +45,7 @@ public class ItJobSearcherResponseExceptionHandler extends ResponseEntityExcepti
     public ErrorResponse handleLackOfPermission(AccessDeniedException exception, HttpServletRequest request) {
         return ErrorResponse.builder()
                 .uuid(UUID.randomUUID())
-                .timeStamp(LocalDateTime.now())
+                .timestamp(LocalDateTime.now())
                 .requestPath(request.getRequestURI())
                 .message(exception.getMessage())
                 .details(Arrays.toString(exception.getStackTrace()))
@@ -57,7 +57,7 @@ public class ItJobSearcherResponseExceptionHandler extends ResponseEntityExcepti
     public ErrorResponse handleProblemAuthentication(AuthenticationException exception, HttpServletRequest request) {
         return ErrorResponse.builder()
                 .uuid(UUID.randomUUID())
-                .timeStamp(LocalDateTime.now())
+                .timestamp(LocalDateTime.now())
                 .requestPath(request.getRequestURI())
                 .message(exception.getMessage())
                 .details(Arrays.toString(exception.getStackTrace()))

@@ -8,7 +8,7 @@ import java.util.UUID;
 @Builder
 public record ErrorResponse(
         UUID uuid,
-        LocalDateTime timeStamp,
+        LocalDateTime timestamp,
         String requestPath,
         String message,
         String details

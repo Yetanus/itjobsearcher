@@ -11,4 +11,6 @@ public interface OfferFacade {
     void updateOffer();
     OfferQuery findOfferById(Long id);
     List<OfferQuery> findAllOffers();
+
+    void deleteOffer(Long id);
 }

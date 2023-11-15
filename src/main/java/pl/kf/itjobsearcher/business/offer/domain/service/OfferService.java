@@ -39,11 +39,16 @@ public record OfferService(
     }
 
     public void updateOffer(){
-        OfferEntity offerEntity = OfferEntity.builder()
-                .description("Mid C++ Developer")
-                .build();
+        offerRepository.findAll()
+                .stream()
+                .map(OfferMapper::changeOfferQuery);
 
-        offerRepository.save(offerEntity);
+    }
+
+    public void deleteOffer(Long id)
+    {
+        OfferEntity offerEntity = OfferEntity.builder().build();
+        offerRepository.delete(offerEntity);
     }
 
 }

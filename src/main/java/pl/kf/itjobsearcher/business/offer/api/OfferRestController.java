@@ -1,6 +1,7 @@
 package pl.kf.itjobsearcher.business.offer.api;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.el.lang.ELArithmetic;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,13 @@ public class OfferRestController {
     @PatchMapping("/offers/{id}")
     public void updateOffer(@PathVariable String id) {
         offerFacade.updateOffer();
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/offers/{id}")
+    public void deleteOffer(@PathVariable("id") Long id)
+    {
+        offerFacade.deleteOffer(id);
     }
 
 }

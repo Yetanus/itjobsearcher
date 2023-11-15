@@ -16,4 +16,17 @@ public record OfferMapper() {
                 .description(offerEntity.getDescription())
                 .build();
     }
+    public static OfferQuery changeOfferQuery(OfferEntity offerEntity) {
+        if (offerEntity.getDescription().equals("Java Developer"))
+            return OfferQuery.builder()
+                    .id(offerEntity.getId())
+                    .description("Mid/Senior Java Developer")
+                    .build();
+
+
+        return OfferQuery.builder()
+                .id(offerEntity.getId())
+                .description(offerEntity.getDescription())
+                .build();
+    }
 }

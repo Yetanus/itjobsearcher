@@ -29,4 +29,9 @@ public class OfferFacadeAdapter implements OfferFacade {
     public List<OfferQuery> findAllOffers() {
         return offerService.findAllOffers();
     }
+
+    @Override
+    public void deleteOffer(Long id) {
+        offerService.deleteOffer(id);
+    }
 }

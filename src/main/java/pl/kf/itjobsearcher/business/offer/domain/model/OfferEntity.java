@@ -23,13 +23,26 @@ import lombok.Setter;
 @Entity
 @Table(name = "t_offer")
 public class OfferEntity {
-// TODO [Kuba] jakie rzeczy w ofercie, przemyslec architekture ,model podstawowy i potem tabele z tego flywayem
+
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sg_offer")
     @SequenceGenerator(name = "sg_offer", sequenceName = "sq_offer", allocationSize = 1)
     @Column(name = "id")
     private Long id;
+
+    @NotNull
+    @Column(name = "contract")
+    private String typeContract;
+
+    @Column(name = "money")
+    private String money;
+
+    @Column(name = "exp")
+    private String exp;
+
+    @Column(name = "requiredtechs")
+    private String techs;
 
     @NotNull
     @Size(max = 255)

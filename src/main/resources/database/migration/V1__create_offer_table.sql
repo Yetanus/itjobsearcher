@@ -1,6 +1,10 @@
 -- Create table for all offers
 CREATE TABLE t_offer (
     id                 BIGINT          NOT NULL,
+    contract           VARCHAR(50)     NOT NULL,
+    money              VARCHAR(50)     NOT NULL,
+    exp                VARCHAR(25)     NOT NULL,
+    requiredtechs      VARCHAR(255)    NOT NULL,
     description        VARCHAR(255)    NOT NULL,
 
     PRIMARY KEY (id)

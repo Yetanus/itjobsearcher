@@ -2,6 +2,7 @@ package pl.kf.itjobsearcher.common.exception;
 
 import lombok.Getter;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,5 +27,10 @@ public class ITJobSearcherBusinessException extends ITJobSearcherException {
         super(errorCode.errorMessage(), cause);
         this.errorCode = errorCode;
         this.userMessages = userMessages;
+    }
+
+    public ITJobSearcherBusinessException(ITJobSearcherErrorCode errorCode, String... userMessages) {
+        // Constructor from above
+        this(errorCode, Arrays.asList(userMessages), null);
     }
 }

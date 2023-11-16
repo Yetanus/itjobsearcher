@@ -11,6 +11,7 @@ public record ErrorResponse(
         LocalDateTime timestamp,
         String requestPath,
         String message,
-        String details
+        String details,
+        String errorCode
 ) {
 }

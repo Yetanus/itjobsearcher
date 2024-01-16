@@ -42,15 +42,14 @@ public class OfferEntity {
     @Max(100000)
     @Column(name = "money")
     private BigDecimal money;
-    //Todo min max, numeric lepiej, wartosc numeryczna, experienceInYears lepiej
+    @Min(0)
+    @Max(20)
     @Column(name = "exp")
-    private String exp;
+    private String experienceInYears;
     //Todo zrobic nowa tabele z tego, relacja 1doWielu, osobna encja, wyswietlanie danych w jeden konkretny sposob, algorytmy eliminujace duplikaty
     @Column(name = "requiredtechs")
     private String techs;
-    //Todo zmienna text w postgresie, wywalic size, nie ograniczac
-    @NotNull
-    @Size(max = 255)
+
     @Column(name = "description")
     private String description;
 

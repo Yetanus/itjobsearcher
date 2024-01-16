@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -14,6 +16,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -30,13 +34,14 @@ public class OfferEntity {
     @Column(name = "id")
     private Long id;
 
-    //Todo nazwa lepiej contractType, w bazie zeby byly tak samo i tutaj lepeij dac enuma
     @NotNull
     @Column(name = "contract")
-    private String typeContract;
-    //Todo lepiej min i max i bigDecimal, numeric w bazie, walidacja, min co najmniej zero
+    private ContractType typeContract;
+
+    @Min(0)
+    @Max(100000)
     @Column(name = "money")
-    private String money;
+    private BigDecimal money;
     //Todo min max, numeric lepiej, wartosc numeryczna, experienceInYears lepiej
     @Column(name = "exp")
     private String exp;

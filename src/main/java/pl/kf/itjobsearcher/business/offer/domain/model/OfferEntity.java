@@ -1,23 +1,10 @@
 package pl.kf.itjobsearcher.business.offer.domain.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
-import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @Getter
 @Setter
@@ -29,24 +16,24 @@ import java.math.BigDecimal;
 public class OfferEntity {
     @Id
     @NotNull
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sg_offer")
-    @SequenceGenerator(name = "sg_offer", sequenceName = "sq_offer", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.UUID, generator = "sg_offer")
     @Column(name = "id")
     private Long id;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     @Column(name = "contract")
     private ContractType typeContract;
-
-    @Min(0)
-    @Max(100000)
-    @Column(name = "money")
-    private BigDecimal money;
+    // todo w przyszlosci cache jako hashmapa do pobierania waluty i konwersji tych ofert co nie sa w PLN
+    @PositiveOrZero
+    @Column(name = "money", precision = 10, scale = 2)
+    private BigInteger money;
     @Min(0)
     @Max(20)
     @Column(name = "exp")
-    private String experienceInYears;
-    //Todo zrobic nowa tabele z tego, relacja 1doWielu, osobna encja, wyswietlanie danych w jeden konkretny sposob, algorytmy eliminujace duplikaty
+    private Integer experienceInYears;
+
+    //todo manyToMany tablica
     @Column(name = "requiredtechs")
     private String techs;
 

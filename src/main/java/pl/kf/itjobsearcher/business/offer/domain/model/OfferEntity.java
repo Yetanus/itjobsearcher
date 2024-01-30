@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.math.BigInteger;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,9 +34,9 @@ public class OfferEntity {
     @Column(name = "exp")
     private Integer experienceInYears;
 
-    //todo manyToMany tablica
-    @Column(name = "requiredtechs")
-    private String techs;
+
+    @ManyToMany
+    private Set<RequiredTechs> techs;
 
     @Column(name = "description")
     private String description;

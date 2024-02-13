@@ -3,9 +3,9 @@ package pl.kf.itjobsearcher.business.offer.domain.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import pl.kf.itjobsearcher.business.offer.domain.OfferConstant;
 
 import java.math.BigInteger;
-import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -21,8 +21,8 @@ public class OfferEntity {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.UUID, generator = "sg_offer")
-    @Column(name = "id")
-    private UUID id;
+    @Column(name = "uuid")
+    private UUID uuid;
 
     @NotNull
     @Enumerated(EnumType.STRING)

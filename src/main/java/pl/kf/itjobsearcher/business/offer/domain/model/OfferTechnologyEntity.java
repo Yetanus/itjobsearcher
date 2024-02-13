@@ -22,7 +22,7 @@ public class OfferTechnologyEntity {
     private UUID uuid;
 
     @NotNull
-    @Column(name = "technology", insertable = false, updatable = false)
-    private String technology;
-
+    @Enumerated(EnumType.STRING)
+    @Column(name = "technology")
+    private OfferTechnology technology;
 }

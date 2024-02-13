@@ -5,7 +5,7 @@ import pl.kf.itjobsearcher.common.exception.ITJobSearcherErrorCode;
 
 @RequiredArgsConstructor
 public enum OfferErrorCode implements ITJobSearcherErrorCode {
-
+    //todo zrobic ta klase taka zeby byla bardziej generalna np. not found
     OFFER_NOT_FOUND("Offer with given id does not exists"),
     OFFER_NOT_UPDATED("Offer could not be updated"),
     OFFER_ALREADY_EXIST("Offer exist - could not be created"),

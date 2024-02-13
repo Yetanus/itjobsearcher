@@ -15,7 +15,9 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class OfferTechnologyService {
     private final OfferTechnologyRepository offerTechnologyRepository;
+    //todo metody do zapisu sa potrzebne na teraz
 
+    //todo te moga byc zapisane pozniej
     public TechnologyQuery findTechnologyById(Long id) {
         return offerTechnologyRepository.findById(id)
                 .map(TechnologyMapper::mapToTechnologyQuery)

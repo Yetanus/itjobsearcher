@@ -16,6 +16,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "t_offer")
 public class OfferEntity {
+    // 1. dopisac encje dla offerToTechnology
 //2. TODO zgodnie z modelem napisać cały kod od modelu przez konwerter do źródła danych i dac PRa
 
     @Id
@@ -26,30 +27,28 @@ public class OfferEntity {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "contract")
-    private ContractType typeContract;
-    // todo w przyszlosci cache jako hashmapa do pobierania waluty i konwersji tych ofert co nie sa w PLN
+    @Column(name = "contract_type")
+    private ContractType contractType;
+
     @PositiveOrZero
-    @Column(name = "money", precision = 10, scale = 2)
-    private BigInteger money;
-    @Min(0)
-    @Max(30)
-    @Column(name = "exp")
-    private Integer experienceInYears;
+    @Column(name = "salary_min")
+    private BigInteger salaryMin;
 
-    @ManyToMany
-    private Set<OfferTechnologyEntity> techs;
+    @PositiveOrZero
+    @Column(name = "salary_max")
+    private BigInteger salaryMax;
 
+    @Min(OfferConstant.MIN_REQUIRED_EXPERIENCE_IN_YEARS)
+    @Max(OfferConstant.MAX_REQUIRED_EXPERIENCE_IN_YEARS)
+    @Column(name = "required_experience_in_years")
+    private Long requiredExperienceInYears;
+
+    @NotBlank
+    @Size(max = OfferConstant.MAX_TITLE_LENGTH)
+    @Column(name = "title")
+    private String title;
+
+    @NotBlank
     @Column(name = "description")
     private String description;
-
-    @NotNull
-    @Size(max = 255)
-    @Column(name = "offertitle")
-    private String offerTitle;
-
-    @NotNull
-    @Size(max = 255)
-    @Column(name = "role")
-    private String role;
 }

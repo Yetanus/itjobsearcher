@@ -10,6 +10,8 @@ spring:
   jpa:
     database: postgresql
     open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
   flyway:
     enabled: false
 

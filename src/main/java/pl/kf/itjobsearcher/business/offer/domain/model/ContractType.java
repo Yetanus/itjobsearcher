@@ -1,10 +1,11 @@
 package pl.kf.itjobsearcher.business.offer.domain.model;
 
 public enum ContractType {
-    // nazwy dac po angielsku
+    //UoP
     PERMAMENT_CONTRACT,
-    B2B,
-    UZ,
-    UD;
-
+    B2B_CONTRACT,
+    //Umowa zlecenie
+    MANDATE_CONTRACT,
+    //Umowa o dzieło
+    WORK_CONTRACT;
 }

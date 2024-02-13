@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.math.BigInteger;
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,11 +16,13 @@ import java.util.Set;
 @Entity
 @Table(name = "t_offer")
 public class OfferEntity {
+//2. TODO zgodnie z modelem napisać cały kod od modelu przez konwerter do źródła danych i dac PRa
+
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.UUID, generator = "sg_offer")
     @Column(name = "id")
-    private Long id;
+    private UUID id;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -30,13 +33,12 @@ public class OfferEntity {
     @Column(name = "money", precision = 10, scale = 2)
     private BigInteger money;
     @Min(0)
-    @Max(20)
+    @Max(30)
     @Column(name = "exp")
     private Integer experienceInYears;
 
-
     @ManyToMany
-    private Set<RequiredTechs> techs;
+    private Set<OfferTechnologyEntity> techs;
 
     @Column(name = "description")
     private String description;

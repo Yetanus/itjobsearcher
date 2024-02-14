@@ -2,7 +2,7 @@ package pl.kf.itjobsearcher.business.offer.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pl.kf.itjobsearcher.business.offer.domain.TechnologyErrorCode;
+import pl.kf.itjobsearcher.business.offer.domain.OfferErrorCode;
 import pl.kf.itjobsearcher.business.offer.domain.mapper.TechnologyMapper;
 import pl.kf.itjobsearcher.business.offer.domain.repository.OfferTechnologyRepository;
 import pl.kf.itjobsearcher.business.offer.dto.TechnologyQuery;
@@ -21,7 +21,7 @@ public class OfferTechnologyService {
     public TechnologyQuery findTechnologyById(Long id) {
         return offerTechnologyRepository.findById(id)
                 .map(TechnologyMapper::mapToTechnologyQuery)
-                .orElseThrow(() -> new ITJobSearcherBusinessException(TechnologyErrorCode.TECHNOLOGY_NOT_FOUND, "Technology does not exist"));
+                .orElseThrow(() -> new ITJobSearcherBusinessException(OfferErrorCode.NOT_FOUND, "Technology does not exist"));
     }
 
     public List<TechnologyQuery> findAllTechnologies() {

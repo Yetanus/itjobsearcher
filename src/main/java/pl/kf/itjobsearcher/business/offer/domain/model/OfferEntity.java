@@ -1,6 +1,7 @@
 package pl.kf.itjobsearcher.business.offer.domain.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -21,6 +22,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.kf.itjobsearcher.business.offer.domain.OfferConstant;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.UUID;
 
@@ -30,9 +32,9 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Embeddable
 @Table(name = "t_offer")
-public class OfferEntity {
-    // 1. dopisac encje dla offerToTechnology
+public class OfferEntity implements Serializable {
 //2. TODO zgodnie z modelem napisać cały kod od modelu przez konwerter do źródła danych i dac PRa
 
     @Id

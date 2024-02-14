@@ -1,11 +1,11 @@
 package pl.kf.itjobsearcher.business.offer.domain.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -26,9 +26,8 @@ import java.util.UUID;
 @Entity
 @Table(name = "t_offer_to_technology")
 public class OfferToTechnologyEntity {
-    //todo klucz kompozytowy zlozony tutaj brakuje EmbeddedId
-    @Id
     @NotNull
+    @EmbeddedId
     @Column(name = "offer_uuid", updatable = false)
     private UUID offerUuid;
 
@@ -36,8 +35,8 @@ public class OfferToTechnologyEntity {
     @JoinColumn(name = "offer_uuid", updatable = false, insertable = false)
     private OfferEntity offerEntity;
 
-    @Id
     @NotNull
+    @EmbeddedId
     @Column(name = "technology_uuid", updatable = false)
     private UUID technologyUuid;
 

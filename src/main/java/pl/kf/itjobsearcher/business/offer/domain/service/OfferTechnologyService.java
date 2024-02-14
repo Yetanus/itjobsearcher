@@ -2,35 +2,19 @@ package pl.kf.itjobsearcher.business.offer.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pl.kf.itjobsearcher.business.offer.domain.OfferErrorCode;
-import pl.kf.itjobsearcher.business.offer.domain.mapper.TechnologyMapper;
+import pl.kf.itjobsearcher.business.offer.domain.model.OfferTechnologyEntity;
 import pl.kf.itjobsearcher.business.offer.domain.repository.OfferTechnologyRepository;
-import pl.kf.itjobsearcher.business.offer.dto.TechnologyQuery;
-import pl.kf.itjobsearcher.common.exception.ITJobSearcherBusinessException;
-
-import java.util.List;
-import java.util.Objects;
+import pl.kf.itjobsearcher.business.offer.dto.CreateTechnologyCommand;
 
 @Slf4j
 @RequiredArgsConstructor
 public class OfferTechnologyService {
     private final OfferTechnologyRepository offerTechnologyRepository;
-    //todo metody do zapisu sa potrzebne na teraz
 
-    //todo te moga byc zapisane pozniej
-    public TechnologyQuery findTechnologyById(Long id) {
-        return offerTechnologyRepository.findById(id)
-                .map(TechnologyMapper::mapToTechnologyQuery)
-                .orElseThrow(() -> new ITJobSearcherBusinessException(OfferErrorCode.NOT_FOUND, "Technology does not exist"));
+    public void createTechnology(CreateTechnologyCommand createTechnologyCommand) {
+        OfferTechnologyEntity offerTechnologyEntity = OfferTechnologyEntity.builder()
+                .technology(createTechnologyCommand.technology())
+                .build();
+        offerTechnologyRepository.save(offerTechnologyEntity);
     }
-
-    public List<TechnologyQuery> findAllTechnologies() {
-        return offerTechnologyRepository.findAll()
-                .stream()
-                .map(TechnologyMapper::mapToTechnologyQuery)
-                .filter(Objects::nonNull)
-                .toList();
-    }
-
-
 }

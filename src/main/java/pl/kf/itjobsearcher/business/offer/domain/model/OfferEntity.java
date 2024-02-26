@@ -35,7 +35,6 @@ import java.util.UUID;
 @Embeddable
 @Table(name = "t_offer")
 public class OfferEntity implements Serializable {
-//2. TODO zgodnie z modelem napisać cały kod od modelu przez konwerter do źródła danych i dac PRa
 
     @Id
     @NotNull

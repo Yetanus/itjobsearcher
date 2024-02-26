@@ -1,0 +1,217 @@
+{
+  "slug": "xtb-senior-java-developer-warszawa",
+  "title": "Senior Java Developer",
+  "requiredSkills": [
+    "Java",
+    "gRPC",
+    "RxJava",
+    "Micronaut",
+    "REST",
+    "Kafka",
+    "Spring",
+    "Akka"
+  ],
+  "niceToHaveSkills": null,
+  "workplaceType": "remote",
+  "workingTime": "full_time",
+  "experienceLevel": "senior",
+  "employmentTypes": [
+    {
+      "to": 28000,
+      "from": 19000,
+      "type": "b2b",
+      "to_chf": 6201.076,
+      "to_eur": 6500.592,
+      "to_gbp": 5553.016,
+      "to_pln": "28000",
+      "to_usd": 7031.584,
+      "currency": "pln",
+      "from_chf": 4207.873,
+      "from_eur": 4411.116,
+      "from_gbp": 3768.118,
+      "from_pln": "19000",
+      "from_usd": 4771.432,
+      "fromChf": 4207.873,
+      "fromEur": 4411.116,
+      "fromGbp": 3768.118,
+      "fromPln": "19000",
+      "fromUsd": 4771.432,
+      "toChf": 6201.076,
+      "toEur": 6500.592,
+      "toGbp": 5553.016,
+      "toPln": "28000",
+      "toUsd": 7031.584
+    },
+    {
+      "to": 25000,
+      "from": 17000,
+      "type": "permanent",
+      "to_chf": 5536.675,
+      "to_eur": 5804.1,
+      "to_gbp": 4958.05,
+      "to_pln": "25000",
+      "to_usd": 6278.2,
+      "currency": "pln",
+      "from_chf": 3764.939,
+      "from_eur": 3946.788,
+      "from_gbp": 3371.474,
+      "from_pln": "17000",
+      "from_usd": 4269.176,
+      "fromChf": 3764.939,
+      "fromEur": 3946.788,
+      "fromGbp": 3371.474,
+      "fromPln": "17000",
+      "fromUsd": 4269.176,
+      "toChf": 5536.675,
+      "toEur": 5804.1,
+      "toGbp": 4958.05,
+      "toPln": "25000",
+      "toUsd": 6278.2
+    }
+  ],
+  "categoryId": 6,
+  "multilocation": [
+    {
+      "city": "Warszawa",
+      "slug": "xtb-senior-java-developer-warszawa",
+      "street": "Prosta 67",
+      "latitude": 52.2295635,
+      "longitude": 20.9838416
+    },
+    {
+      "city": "Kraków",
+      "slug": "xtb-senior-java-developer-krakow-328137",
+      "street": "centrum",
+      "latitude": 50.0591121,
+      "longitude": 19.9378922
+    },
+    {
+      "city": "Wrocław",
+      "slug": "xtb-senior-java-developer-wroclaw-328138",
+      "street": "centrum",
+      "latitude": 51.1078852,
+      "longitude": 17.0385376
+    },
+    {
+      "city": "Katowice",
+      "slug": "xtb-senior-java-developer-katowice-328139",
+      "street": "centrum",
+      "latitude": 50.2648919,
+      "longitude": 19.0237815
+    },
+    {
+      "city": "Rzeszów",
+      "slug": "xtb-senior-java-developer-rzeszow-328140",
+      "street": "centrum",
+      "latitude": 50.0411867,
+      "longitude": 21.9991196
+    },
+    {
+      "city": "Lublin",
+      "slug": "xtb-senior-java-developer-lublin-328141",
+      "street": "centrum",
+      "latitude": 51.2464536,
+      "longitude": 22.5684463
+    },
+    {
+      "city": "Poznań",
+      "slug": "xtb-senior-java-developer-poznan-328142",
+      "street": "centrum",
+      "latitude": 52.4093634,
+      "longitude": 16.9317991
+    },
+    {
+      "city": "Łódź",
+      "slug": "xtb-senior-java-developer-lodz-328143",
+      "street": "centrum",
+      "latitude": 51.7592485,
+      "longitude": 19.4559833
+    },
+    {
+      "city": "Gdańsk",
+      "slug": "xtb-senior-java-developer-gdansk-328144",
+      "street": "centrum",
+      "latitude": 54.3520252,
+      "longitude": 18.6466384
+    },
+    {
+      "city": "Szczecin",
+      "slug": "xtb-senior-java-developer-szczecin-328145",
+      "street": "centrum",
+      "latitude": 53.4330206,
+      "longitude": 14.5483543
+    },
+    {
+      "city": "Częstochowa",
+      "slug": "xtb-senior-java-developer-czestochowa-328148",
+      "street": "centrum",
+      "latitude": 50.8118195,
+      "longitude": 19.1203094
+    },
+    {
+      "city": "Kielce",
+      "slug": "xtb-senior-java-developer-kielce-328149",
+      "street": "centrum",
+      "latitude": 50.8660773,
+      "longitude": 20.6285677
+    },
+    {
+      "city": "Zielona Góra",
+      "slug": "xtb-senior-java-developer-zielona-gora-328150",
+      "street": "centrum",
+      "latitude": 51.9356214,
+      "longitude": 15.5061862
+    },
+    {
+      "city": "Białystok",
+      "slug": "xtb-senior-java-developer-bialystok-328151",
+      "street": "centrum",
+      "latitude": 53.1328811,
+      "longitude": 23.1555582
+    },
+    {
+      "city": "Olsztyn",
+      "slug": "xtb-senior-java-developer-olsztyn-328152",
+      "street": "centrum",
+      "latitude": 53.778422,
+      "longitude": 20.4801193
+    },
+    {
+      "city": "Bydgoszcz",
+      "slug": "xtb-senior-java-developer-bydgoszcz-328153",
+      "street": "centrum",
+      "latitude": 53.1234804,
+      "longitude": 18.0084378
+    },
+    {
+      "city": "Bielsko-Biała",
+      "slug": "xtb-senior-java-developer-bielsko-biala",
+      "street": "centrum",
+      "latitude": 49.8223768,
+      "longitude": 19.0583845
+    },
+    {
+      "city": "Opole",
+      "slug": "xtb-senior-java-developer-opole-328155",
+      "street": "centrum",
+      "latitude": 50.6683223,
+      "longitude": 17.9230651
+    },
+    {
+      "city": "Gliwice",
+      "slug": "xtb-senior-java-developer-gliwice",
+      "street": "centrum",
+      "latitude": 50.2944923,
+      "longitude": 18.6713802
+    }
+  ],
+  "city": "Warszawa",
+  "street": "Prosta 67",
+  "latitude": 52.2295635,
+  "longitude": 20.9838416,
+  "remoteInterview": false,
+  "companyName": "XTB",
+  "companyLogoThumbUrl": "https://public.justjoin.it/offers/company_logos/thumb_x2/6a12176218744c2bda71375d403b20899b72990b.jpg?1695691611",
+  "publishedAt": "2024-02-26T19:00:04.126Z",
+  "openToHireUkrainians": false
+}

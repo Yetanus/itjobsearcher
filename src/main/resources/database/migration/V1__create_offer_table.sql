@@ -34,5 +34,3 @@ CREATE TABLE t_offer_to_technology (
     FOREIGN KEY (offer_uuid) REFERENCES t_offer(uuid),
     FOREIGN KEY (technology_uuid) REFERENCES t_offer_technology(uuid)
 );
-
---2 many to one dla offerToTechnologyEntity dla obu kluczy obcych

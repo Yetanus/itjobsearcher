@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import pl.kf.itjobsearcher.common.exception.ITJobSearcherErrorCode;
 
 @RequiredArgsConstructor
-public enum OfferErrorCode implements ITJobSearcherErrorCode {
+public enum ErrorCode implements ITJobSearcherErrorCode {
     NOT_FOUND("Element with given id does not exists"),
     NOT_UPDATED("Could not be updated"),
     ALREADY_EXIST("Already exist - could not be created"),

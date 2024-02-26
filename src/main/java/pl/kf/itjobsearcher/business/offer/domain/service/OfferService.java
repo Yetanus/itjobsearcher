@@ -2,7 +2,7 @@ package pl.kf.itjobsearcher.business.offer.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pl.kf.itjobsearcher.business.offer.domain.OfferErrorCode;
+import pl.kf.itjobsearcher.business.offer.domain.ErrorCode;
 import pl.kf.itjobsearcher.business.offer.domain.mapper.OfferMapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferEntity;
 import pl.kf.itjobsearcher.business.offer.domain.repository.OfferRepository;
@@ -28,7 +28,7 @@ public class OfferService {
     public OfferQuery findOfferById(Long id) {
         return offerRepository.findById(id)
                 .map(OfferMapper::mapToOfferQuery)
-                .orElseThrow(() -> new ITJobSearcherBusinessException(OfferErrorCode.NOT_FOUND, "Offer with given id not found"));
+                .orElseThrow(() -> new ITJobSearcherBusinessException(ErrorCode.NOT_FOUND, "Offer with given id not found"));
     }
 
     public List<OfferQuery> findAllOffers(){

@@ -30,7 +30,7 @@ import java.util.UUID;
 @Entity
 @Embeddable
 @Table(name = "t_jj_offer")
-public class JJOfferEntity {
+public class JustJoinOfferEntity {
 
     @Id
     @NotNull

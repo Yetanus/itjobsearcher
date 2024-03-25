@@ -18,7 +18,9 @@ import java.util.Objects;
 public class OfferService {
 
     private final OfferRepository offerRepository;
+    //todo modyfikacja do formy createOffers, parametr list<createoffercommand> najlepiej z enumem skad to pochodzi
     public void createOffer(CreateOfferCommand createOfferCommand) {
+        //todo z listy liste encji i save all
         OfferEntity offerEntity = OfferEntity.builder()
                 .description(createOfferCommand.description())
                 .build();

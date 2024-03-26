@@ -1,4 +1,4 @@
-package pl.kf.itjobsearcher.business.justjoin.converter;
+package pl.kf.itjobsearcher.business.justjoin.offer.domain.converter;
 
 import pl.kf.itjobsearcher.business.justjoin.offer.domain.model.JustJoinOfferSalaryEntity;
 import pl.kf.itjobsearcher.business.offer.converter.OfferConverter;

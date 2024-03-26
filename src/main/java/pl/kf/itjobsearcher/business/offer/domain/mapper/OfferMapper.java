@@ -10,20 +10,13 @@ public record OfferMapper() {
             return null;
         }
         return OfferQuery.builder()
-                .id(offerEntity.getUuid())
-                .description(offerEntity.getDescription())
-                .build();
-    }
-    public static OfferQuery changeOfferQuery(OfferEntity offerEntity) {
-        if (offerEntity.getDescription().equals("Java Developer"))
-            return OfferQuery.builder()
-                    .id(offerEntity.getUuid())
-                    .description("Mid/Senior Java Developer")
-                    .build();
-
-
-        return OfferQuery.builder()
-                .id(offerEntity.getUuid())
+                .uuid(offerEntity.getUuid())
+                .contractType(offerEntity.getContractType())
+                .salaryMin(offerEntity.getSalaryMin())
+                .salaryMax(offerEntity.getSalaryMax())
+                .requiredExperienceInYears(offerEntity.getRequiredExperienceInYears())
+                .requiredSkills(offerEntity.getRequiredSkills())
+                .title(offerEntity.getTitle())
                 .description(offerEntity.getDescription())
                 .build();
     }

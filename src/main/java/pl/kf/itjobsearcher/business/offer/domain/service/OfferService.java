@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import pl.kf.itjobsearcher.business.offer.domain.ErrorCode;
 import pl.kf.itjobsearcher.business.offer.domain.mapper.OfferMapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferEntity;
+import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.repository.OfferRepository;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
@@ -18,12 +19,9 @@ import java.util.Objects;
 public class OfferService {
 
     private final OfferRepository offerRepository;
-    //todo modyfikacja do formy createOffers, parametr list<createoffercommand> najlepiej z enumem skad to pochodzi
-    public void createOffer(CreateOfferCommand createOfferCommand) {
+    public void createOffer(List<CreateOfferCommand> createOfferCommand, OfferSource offerSource) {
         //todo z listy liste encji i save all
-        OfferEntity offerEntity = OfferEntity.builder()
-                .description(createOfferCommand.description())
-                .build();
+        OfferEntity offerEntity = OfferEntity.builder().build();
         offerRepository.save(offerEntity);
     }
 
@@ -44,7 +42,8 @@ public class OfferService {
     public void updateOffer(){
         offerRepository.findAll()
                 .stream()
-                .map(OfferMapper::changeOfferQuery);
+                .toList();
+        // todo will be implemented
 
     }
 

@@ -1,6 +1,7 @@
 package pl.kf.itjobsearcher.business.offer.domain;
 
 import lombok.RequiredArgsConstructor;
+import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.service.OfferService;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
@@ -13,8 +14,8 @@ public class OfferFacadeAdapter implements OfferFacade {
     private final OfferService offerService;
 
     @Override
-    public void createOffer(CreateOfferCommand createOfferCommand) {
-        offerService.createOffer(createOfferCommand);
+    public void createOffer(List<CreateOfferCommand> createOfferCommand, OfferSource offerSource) {
+        offerService.createOffer(createOfferCommand, offerSource);
     }
 
     @Override

@@ -5,10 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.kf.itjobsearcher.business.offer.domain.OfferFacade;
+import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.request.CreateOfferRequest;
 import pl.kf.itjobsearcher.business.offer.dto.response.FindAllOffersResponse;
 import pl.kf.itjobsearcher.business.offer.dto.response.OfferResponse;
+
+import java.util.Collections;
 
 @RestController
 @RequestMapping("/offers")
@@ -24,8 +27,8 @@ public class OfferRestController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createOffer(@RequestBody CreateOfferRequest createOfferRequest) {
-        offerFacade.createOffer(createOfferRequest.toCreateOfferCommand());
+    public void createOffer(@RequestBody CreateOfferRequest createOfferRequest, OfferSource offerSource) {
+        offerFacade.createOffer(Collections.singletonList(createOfferRequest.toCreateOfferCommand()), offerSource);
     }
 
     @ResponseStatus(HttpStatus.OK)

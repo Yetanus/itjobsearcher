@@ -2,11 +2,15 @@ package pl.kf.itjobsearcher.business.offer.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import pl.kf.itjobsearcher.business.external.januszsoft.dto.JanuszSoftOffersWrapper;
+import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinOffersWrapper;
 import pl.kf.itjobsearcher.business.offer.domain.ErrorCode;
 import pl.kf.itjobsearcher.business.offer.domain.mapper.OfferMapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferEntity;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.repository.OfferRepository;
+import pl.kf.itjobsearcher.business.offer.domain.service.converter.JanuszSoftOfferConverter;
+import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
 import pl.kf.itjobsearcher.common.exception.ITJobSearcherBusinessException;
 
@@ -18,9 +22,8 @@ import java.util.Objects;
 public class OfferService {
 
     private final OfferRepository offerRepository;
-    public void createOffer(List<OfferEntity> offerEntities, OfferSource offerSource) {
-        //todo z listy powyzej liste offer entity, przekonwertowac to i zapisac w bazce
-        offerRepository.saveAll(offerEntities);
+    public void createOffer(CreateOfferCommand offerCommands, OfferSource offerSource) {
+        offerRepository.save(offerCommands, offerSource);
     }
 
     public OfferQuery findOfferById(Long id) {
@@ -37,7 +40,7 @@ public class OfferService {
                 .toList();
     }
 
-    public void updateOffer(){
+    public void updateOffer(Long offerId, OfferEntity offerEntity){
         offerRepository.findAll()
                 .stream()
                 .toList();

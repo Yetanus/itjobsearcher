@@ -18,15 +18,14 @@ public class JustJoinToOfferConverter implements OfferConverter<JustJoinOffersWr
                 .map(this::buildCreateOfferCommand)
                 .toList();
     }
-    private BigDecimal convertMinSalary(){
-
+    private BigDecimal convertMinSalary(JustJoinOffer justJoinOffer){
+        return null;
     }
 
     private BigDecimal convertMaxSalary(){
 
+        return null;
     }
-}
-
 
     private CreateOfferCommand buildCreateOfferCommand(JustJoinOffer justJoinOffer){
         List<ContractType> contractTypes = switch (justJoinOffer.employmentType()){
@@ -36,8 +35,8 @@ public class JustJoinToOfferConverter implements OfferConverter<JustJoinOffersWr
    return CreateOfferCommand.builder()
            .title(justJoinOffer.title())
            .description(justJoinOffer.slug())
-           .
-
-
-
+           .minSalary(convertMinSalary())
+           .maxSalary(convertMaxSalary())
+           .contractTypes(contractTypes)
+           .build();
 }

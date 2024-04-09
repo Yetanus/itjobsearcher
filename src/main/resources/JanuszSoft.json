@@ -1,0 +1,18 @@
+{
+  "offers": [
+    {
+      "title": "Java Developer",
+      "description": "Java Developer that not need a lot of money and can make code only for food",
+      "contractType": "B2B",
+      "minSalary": 1.00,
+      "maxSalary" : 2.50
+    },
+    {
+      "title": "NodeJS Developer",
+      "description": "NodeJS that not need a lot of money and can make code only for food for the Janusz Empire",
+      "contractType": "B2B",
+      "minSalary": 1.00,
+      "maxSalary" : 2.50
+    }
+  ]
+}

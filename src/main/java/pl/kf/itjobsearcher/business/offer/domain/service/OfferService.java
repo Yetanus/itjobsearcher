@@ -7,7 +7,6 @@ import pl.kf.itjobsearcher.business.offer.domain.mapper.OfferMapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferEntity;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.repository.OfferRepository;
-import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
 import pl.kf.itjobsearcher.common.exception.ITJobSearcherBusinessException;
 
@@ -19,10 +18,9 @@ import java.util.Objects;
 public class OfferService {
 
     private final OfferRepository offerRepository;
-    public void createOffer(List<CreateOfferCommand> createOfferCommand, OfferSource offerSource) {
-        //todo z listy liste encji i save all
-        OfferEntity offerEntity = OfferEntity.builder().build();
-        offerRepository.save(offerEntity);
+    public void createOffer(List<OfferEntity> offerEntities, OfferSource offerSource) {
+        //todo z listy powyzej liste offer entity, przekonwertowac to i zapisac w bazce
+        offerRepository.saveAll(offerEntities);
     }
 
     public OfferQuery findOfferById(Long id) {

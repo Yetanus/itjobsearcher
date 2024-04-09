@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.kf.itjobsearcher.business.offer.domain.OfferFacade;
+import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.request.CreateOfferRequest;
 import pl.kf.itjobsearcher.business.offer.dto.response.FindAllOffersResponse;
 import pl.kf.itjobsearcher.business.offer.dto.response.OfferResponse;

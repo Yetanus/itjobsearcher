@@ -77,4 +77,8 @@ public class OfferEntity implements Serializable {
     @NotBlank
     @Column(name = "description")
     private String description;
+
+    @NotBlank
+    @Column(name = "data_source")
+    private String dataSource;
 }

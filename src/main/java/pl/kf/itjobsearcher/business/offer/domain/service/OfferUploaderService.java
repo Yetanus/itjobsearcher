@@ -7,6 +7,7 @@ import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinOffersWr
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.service.converter.OfferConverter;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
+import pl.kf.itjobsearcher.business.offer.dto.UploadOffersCommand;
 
 import java.util.List;
 
@@ -18,15 +19,32 @@ public class OfferUploaderService {
     private final OfferConverter<JanuszSoftOffersWrapper> januszSoftOfferConverter;
     private final OfferConverter<JustJoinOffersWrapper> justJoinOffersOfferConverter;
 
-    void uploadOffersFromJanuszSoft(JanuszSoftOffersWrapper januszSoftOffersWrapper) {
+    private void uploadOffersFromJanuszSoft(JanuszSoftOffersWrapper januszSoftOffersWrapper) {
         List<CreateOfferCommand> createOfferCommand = januszSoftOfferConverter.convert(januszSoftOffersWrapper);
-        offerService.createOffer(createOfferCommand, OfferSource.JANUSZ_SOFT);
+        offerService.createOffers(createOfferCommand);
     }
 
-    void uploadOffersFromJustJoin(JustJoinOffersWrapper justJoinOffersWrapper){
+    private void uploadOffersFromJustJoin(JustJoinOffersWrapper justJoinOffersWrapper){
         List<CreateOfferCommand> createOfferCommands = justJoinOffersOfferConverter.convert(justJoinOffersWrapper);
-        offerService.createOffer(createOfferCommands,OfferSource.JUST_JOIN);
+        offerService.createOffers(createOfferCommands);
     }
 
-    // 1000
+    public void uploadOffers(UploadOffersCommand uploadOffersCommand){
+        OfferSource offerSource = switch (uploadOffersCommand.offerSource()){
+            case JUST_JOIN -> {
+                JustJoinOffersWrapper offersWrapper = justJoinClient.fetchOffers();
+                uploadOffersFromJustJoin(offersWrapper);
+            }
+            case LINKEDIN -> {
+`               // 2. Otrzymac dnae z Linkedin
+            }
+            case JANUSZ_SOFT -> {
+
+            }
+            case NO_FLUFF_JOBS -> {
+
+            }
+            default -> throw IllegalArgumentException("Please write right message for the next");
+        }
+    }
 }

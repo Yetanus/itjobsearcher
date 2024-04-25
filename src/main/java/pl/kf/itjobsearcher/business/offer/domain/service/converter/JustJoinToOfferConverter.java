@@ -3,7 +3,6 @@ package pl.kf.itjobsearcher.business.offer.domain.service.converter;
 import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinOffer;
 import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinOffersWrapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.ContractType;
-import pl.kf.itjobsearcher.business.offer.domain.model.ProgrammingSkill;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 
 

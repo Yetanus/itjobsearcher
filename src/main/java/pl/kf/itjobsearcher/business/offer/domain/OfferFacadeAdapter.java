@@ -3,8 +3,10 @@ package pl.kf.itjobsearcher.business.offer.domain;
 import lombok.RequiredArgsConstructor;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.service.OfferService;
+import pl.kf.itjobsearcher.business.offer.domain.service.OfferUploaderService;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
+import pl.kf.itjobsearcher.business.offer.dto.UploadOffersCommand;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ import java.util.List;
 public class OfferFacadeAdapter implements OfferFacade {
 
     private final OfferService offerService;
+    private final OfferUploaderService offerUploaderService;
 
     @Override
     public void createOffer(List<CreateOfferCommand> createOfferCommand, OfferSource offerSource) {
@@ -29,6 +32,11 @@ public class OfferFacadeAdapter implements OfferFacade {
     @Override
     public List<OfferQuery> findAllOffers() {
         return offerService.findAllOffers();
+    }
+
+    @Override
+    public void uploadOffers(UploadOffersCommand uploadOffersCommand) {
+        offerUploaderService.
     }
 
     @Override

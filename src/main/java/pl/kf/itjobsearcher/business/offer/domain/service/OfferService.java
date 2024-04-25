@@ -2,14 +2,10 @@ package pl.kf.itjobsearcher.business.offer.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pl.kf.itjobsearcher.business.external.januszsoft.dto.JanuszSoftOffersWrapper;
-import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinOffersWrapper;
 import pl.kf.itjobsearcher.business.offer.domain.ErrorCode;
 import pl.kf.itjobsearcher.business.offer.domain.mapper.OfferMapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferEntity;
-import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.repository.OfferRepository;
-import pl.kf.itjobsearcher.business.offer.domain.service.converter.JanuszSoftOfferConverter;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
 import pl.kf.itjobsearcher.common.exception.ITJobSearcherBusinessException;
@@ -22,8 +18,12 @@ import java.util.Objects;
 public class OfferService {
 
     private final OfferRepository offerRepository;
-    public void createOffer(CreateOfferCommand offerCommands, OfferSource offerSource) {
-        offerRepository.save(offerCommands, offerSource);
+
+    public void createOffers(List<CreateOfferCommand> createOfferCommands){
+        List<OfferEntity> entities = createOfferCommands.stream()
+                .map(OfferMapper::mapToOfferEntity)
+                .toList();
+        offerRepository.saveAll(entities);
     }
 
     public OfferQuery findOfferById(Long id) {

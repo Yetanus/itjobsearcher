@@ -1,7 +1,10 @@
 package pl.kf.itjobsearcher.business.offer.domain.mapper;
 
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferEntity;
+import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
+
+import java.util.Objects;
 
 public record OfferMapper() {
 
@@ -19,5 +22,17 @@ public record OfferMapper() {
                 .title(offerEntity.getTitle())
                 .description(offerEntity.getDescription())
                 .build();
+    }
+
+    public static OfferEntity mapToOfferEntity(CreateOfferCommand createOfferCommand){
+        Objects.requireNonNull(createOfferCommand);
+        return OfferEntity.builder()
+                .contractType(createOfferCommand.contractTypes())
+                .salaryMin(createOfferCommand.minSalary())
+                .salaryMax(createOfferCommand.maxSalary())
+                .title(createOfferCommand.title())
+                .description(createOfferCommand.description())
+                .build();
+
     }
 }

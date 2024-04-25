@@ -2,6 +2,7 @@ package pl.kf.itjobsearcher.business.offer.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import pl.kf.itjobsearcher.business.external.januszsoft.dto.JanuszSoftOffersWrapper;
+import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinClient;
 import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinOffersWrapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.service.converter.OfferConverter;
@@ -13,6 +14,7 @@ import java.util.List;
 public class OfferUploaderService {
 
     private final OfferService offerService;
+    private final JustJoinClient justJoinClient;
     private final OfferConverter<JanuszSoftOffersWrapper> januszSoftOfferConverter;
     private final OfferConverter<JustJoinOffersWrapper> justJoinOffersOfferConverter;
 

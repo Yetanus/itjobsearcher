@@ -6,6 +6,10 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+
+/**
+ * Class ,which uses WebClient to retrive data from JustJoinIT website.
+ */
 @Service
 public class JustJoinClient {
 

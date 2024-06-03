@@ -4,6 +4,9 @@ import lombok.Builder;
 
 import java.math.BigDecimal;
 
+/**
+ * Offer Class for Janusz Soft.
+ */
 @Builder
 public record JanuszSoftOffer(
         String title,

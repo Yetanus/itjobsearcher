@@ -27,20 +27,12 @@ public class OfferFacadeAdapter implements OfferFacade {
     }
 
     @Override
-    public void updateOffer(){offerService.updateOffer();}
-
-    @Override
     public List<OfferQuery> findAllOffers() {
         return offerService.findAllOffers();
     }
 
     @Override
     public void uploadOffers(UploadOffersCommand uploadOffersCommand) {
-        offerUploaderService.
-    }
-
-    @Override
-    public void deleteOffer(Long id) {
-        offerService.deleteOffer(id);
+        offerUploaderService.uploadOffers(uploadOffersCommand);
     }
 }

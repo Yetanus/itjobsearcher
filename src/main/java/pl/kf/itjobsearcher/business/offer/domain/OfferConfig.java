@@ -14,8 +14,6 @@ public class OfferConfig {
                 offerRepository
         );
 
-        return new OfferFacadeAdapter(
-                offerService
-        );
+        return null;
     }
 }

@@ -21,12 +21,12 @@ public class OfferUploaderService {
 
     private void uploadOffersFromJanuszSoft(JanuszSoftOffersWrapper januszSoftOffersWrapper) {
         List<CreateOfferCommand> createOfferCommand = januszSoftOfferConverter.convert(januszSoftOffersWrapper);
-        offerService.createOffers(createOfferCommand);
+        offerService.createOffers(createOfferCommand, OfferSource.JANUSZ_SOFT);
     }
 
     private void uploadOffersFromJustJoin(JustJoinOffersWrapper justJoinOffersWrapper){
         List<CreateOfferCommand> createOfferCommands = justJoinOffersOfferConverter.convert(justJoinOffersWrapper);
-        offerService.createOffers(createOfferCommands);
+        offerService.createOffers(createOfferCommands, OfferSource.JUST_JOIN);
     }
 
     public void uploadOffers(UploadOffersCommand uploadOffersCommand){
@@ -36,15 +36,15 @@ public class OfferUploaderService {
                 uploadOffersFromJustJoin(offersWrapper);
             }
             case LINKEDIN -> {
-`               // 2. Otrzymac dnae z Linkedin
+              // 2. Otrzymac dnae z Linkedin
             }
             case JANUSZ_SOFT -> {
 
             }
             case NO_FLUFF_JOBS -> {
-
+                //todo will be implemented
             }
-            default -> throw IllegalArgumentException("Please write right message for the next");
-        }
+            default -> throw new IllegalArgumentException("Invalid source");
+        };
     }
 }

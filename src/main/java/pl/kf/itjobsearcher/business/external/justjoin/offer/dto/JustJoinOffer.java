@@ -2,6 +2,9 @@ package pl.kf.itjobsearcher.business.external.justjoin.offer.dto;
 
 import lombok.Builder;
 
+/**
+ * DTO class, with all fields required for every offer from JustJoinIT
+ */
 @Builder
 public record JustJoinOffer(
         String slug,

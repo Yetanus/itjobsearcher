@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import pl.kf.itjobsearcher.business.offer.domain.ErrorCode;
 import pl.kf.itjobsearcher.business.offer.domain.mapper.OfferMapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferEntity;
+import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.repository.OfferRepository;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 import pl.kf.itjobsearcher.business.offer.dto.OfferQuery;
@@ -19,7 +20,7 @@ public class OfferService {
 
     private final OfferRepository offerRepository;
 
-    public void createOffers(List<CreateOfferCommand> createOfferCommands){
+    public void createOffers(List<CreateOfferCommand> createOfferCommands, OfferSource offerSource){
         List<OfferEntity> entities = createOfferCommands.stream()
                 .map(OfferMapper::mapToOfferEntity)
                 .toList();

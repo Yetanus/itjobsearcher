@@ -17,8 +17,8 @@ public class OfferFacadeAdapter implements OfferFacade {
     private final OfferUploaderService offerUploaderService;
 
     @Override
-    public void createOffer(List<CreateOfferCommand> createOfferCommand, OfferSource offerSource) {
-        offerService.createOffer(createOfferCommand, offerSource);
+    public void createOffers(List<CreateOfferCommand> createOfferCommand, OfferSource offerSource) {
+        offerService.createOffers(createOfferCommand, offerSource);
     }
 
     @Override

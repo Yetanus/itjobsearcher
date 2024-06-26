@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface OfferFacade {
 
-    void createOffer(List<CreateOfferCommand> createOfferCommands ,OfferSource offerSource);
+    void createOffers(List<CreateOfferCommand> createOfferCommands ,OfferSource offerSource);
     OfferQuery findOfferById(Long id);
     List<OfferQuery> findAllOffers();
 

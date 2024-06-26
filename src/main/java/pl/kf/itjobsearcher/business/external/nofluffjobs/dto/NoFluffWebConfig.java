@@ -1,18 +1,19 @@
-package pl.kf.itjobsearcher.business.external.justjoin.dto;
+package pl.kf.itjobsearcher.business.external.nofluffjobs.dto;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
 /**
- * Configuration class for {@link RestClient} used for communication with JustJoinIT website.
+ * Configuration class for WebClient used for communication with noFluffJobs website.
  */
 @Configuration
-public class JustJoinWebConfig {
+public class NoFluffWebConfig {
+
     @Bean
     public RestClient webClient(){
         RestClient webClient = RestClient.builder()
-                .baseUrl("https://justjoin.it/")
+                .baseUrl("https://nofluffjobs.com/pl/")
                 .build();
         return webClient;
     }

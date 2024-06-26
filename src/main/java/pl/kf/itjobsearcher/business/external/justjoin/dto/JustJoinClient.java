@@ -1,4 +1,4 @@
-package pl.kf.itjobsearcher.business.external.justjoin.offer.dto;
+package pl.kf.itjobsearcher.business.external.justjoin.dto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,7 @@ import org.springframework.web.client.RestClient;
 import java.util.List;
 
 /**
- * Class ,which uses WebClient to retrive data from JustJoinIT website.
+ * Class ,which uses {@link RestClient} to retrive data from JustJoinIT website.
  */
 @Service
 public class JustJoinClient {

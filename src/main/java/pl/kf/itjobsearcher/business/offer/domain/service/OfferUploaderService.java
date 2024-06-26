@@ -2,8 +2,8 @@ package pl.kf.itjobsearcher.business.offer.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import pl.kf.itjobsearcher.business.external.januszsoft.dto.JanuszSoftOffersWrapper;
-import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinClient;
-import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinOffersWrapper;
+import pl.kf.itjobsearcher.business.external.justjoin.dto.JustJoinClient;
+import pl.kf.itjobsearcher.business.external.justjoin.dto.JustJoinOffersWrapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 import pl.kf.itjobsearcher.business.offer.domain.service.converter.OfferConverter;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
@@ -39,7 +39,6 @@ public class OfferUploaderService {
               // 2. Otrzymac dnae z Linkedin
             }
             case JANUSZ_SOFT -> {
-
             }
             case NO_FLUFF_JOBS -> {
                 //todo will be implemented

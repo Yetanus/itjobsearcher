@@ -1,4 +1,4 @@
-package pl.kf.itjobsearcher.business.external.justjoin.offer.dto;
+package pl.kf.itjobsearcher.business.external.justjoin.dto;
 
 import lombok.Builder;
 

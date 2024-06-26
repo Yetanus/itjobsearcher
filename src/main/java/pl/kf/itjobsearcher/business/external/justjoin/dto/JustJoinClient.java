@@ -13,11 +13,11 @@ import java.util.List;
 @Service
 public class JustJoinClient {
 
-    private final RestClient webClient;
+    private final RestClient justJoinWebClient;
 
     @Autowired
-    public JustJoinClient(RestClient webClient){
-        this.webClient = webClient;
+    public JustJoinClient(RestClient justJoinWebClient){
+        this.justJoinWebClient = justJoinWebClient;
     }
     /**
      * This method is responsible for fetch all offers from JustJointIT job board.
@@ -32,7 +32,7 @@ public class JustJoinClient {
     }
 
     private List<JustJoinOffer> getOffersFromWeb(){
-        ResponseEntity<JustJoinOffer> offers = webClient
+        ResponseEntity<JustJoinOffer> offers = justJoinWebClient
                 .get()
                 .uri("/all-locations/java")
                 .retrieve()

@@ -10,7 +10,7 @@ import org.springframework.web.client.RestClient;
 @Configuration
 public class JustJoinWebConfig {
     @Bean
-    public RestClient webClient(){
+    public RestClient JustJoinWebClient(){
         RestClient webClient = RestClient.builder()
                 .baseUrl("https://justjoin.it/")
                 .build();

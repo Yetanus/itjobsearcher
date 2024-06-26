@@ -9,11 +9,11 @@ import org.springframework.web.client.RestClient;
  */
 @Service
 public class NoFluffClient {
-    private final RestClient webClient;
+    private final RestClient NoFluffWebClient;
 
     @Autowired
-    public NoFluffClient(RestClient webClient){
-        this.webClient = webClient;
+    public NoFluffClient(RestClient NoFluffWebClient){
+        this.NoFluffWebClient = NoFluffWebClient;
     }
 
 }

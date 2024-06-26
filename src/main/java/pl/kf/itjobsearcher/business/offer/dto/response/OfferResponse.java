@@ -11,7 +11,7 @@ public record OfferResponse(
 
     public static OfferResponse fromQuery(OfferQuery offerQuery) {
         return new OfferResponse(
-                offerQuery.id(),
+                offerQuery.uuid(),
                 offerQuery.description()
         );
     }

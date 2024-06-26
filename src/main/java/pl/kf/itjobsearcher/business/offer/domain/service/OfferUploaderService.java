@@ -30,20 +30,13 @@ public class OfferUploaderService {
     }
 
     public void uploadOffers(UploadOffersCommand uploadOffersCommand){
-        OfferSource offerSource = switch (uploadOffersCommand.offerSource()){
-            case JUST_JOIN -> {
-                JustJoinOffersWrapper offersWrapper = justJoinClient.fetchOffers();
-                uploadOffersFromJustJoin(offersWrapper);
-            }
-            case LINKEDIN -> {
-              // 2. Otrzymac dnae z Linkedin
-            }
-            case JANUSZ_SOFT -> {
-            }
-            case NO_FLUFF_JOBS -> {
-                //todo will be implemented
-            }
-            default -> throw new IllegalArgumentException("Invalid source");
-        };
+        if(uploadOffersCommand.offerSource().equals(OfferSource.JUST_JOIN)){
+            JustJoinOffersWrapper offersWrapper = justJoinClient.fetchOffers();
+            uploadOffersFromJustJoin(offersWrapper);
+        }
+        else {
+            throw new IllegalArgumentException("Invalid source");
+        }
+        // cases for next sources will be implemented as soon as sources are reachable.
     }
 }

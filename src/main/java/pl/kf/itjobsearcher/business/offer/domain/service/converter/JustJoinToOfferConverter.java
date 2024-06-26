@@ -1,14 +1,13 @@
 package pl.kf.itjobsearcher.business.offer.domain.service.converter;
 
-import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinOffer;
-import pl.kf.itjobsearcher.business.external.justjoin.offer.dto.JustJoinOffersWrapper;
+import pl.kf.itjobsearcher.business.external.justjoin.dto.JustJoinOffer;
+import pl.kf.itjobsearcher.business.external.justjoin.dto.JustJoinOffersWrapper;
 import pl.kf.itjobsearcher.business.offer.domain.model.ContractType;
 import pl.kf.itjobsearcher.business.offer.dto.CreateOfferCommand;
 
-
-import java.math.BigDecimal;
-import java.util.Arrays;
+import java.math.BigInteger;
 import java.util.List;
+
 public class JustJoinToOfferConverter implements OfferConverter<JustJoinOffersWrapper> {
     @Override
     public List<CreateOfferCommand> convert(JustJoinOffersWrapper justJoinOffersWrapper) {
@@ -17,25 +16,32 @@ public class JustJoinToOfferConverter implements OfferConverter<JustJoinOffersWr
                 .map(this::buildCreateOfferCommand)
                 .toList();
     }
-    private BigDecimal convertMinSalary(JustJoinOffer justJoinOffer){
+
+    private BigInteger convertMinSalary() {
+        BigInteger convertedSalary = BigInteger.ONE;
+        return convertedSalary;
+    }
+
+    private BigInteger convertMaxSalary() {
+
         return null;
     }
 
-    private BigDecimal convertMaxSalary(){
-
-        return null;
+    private CreateOfferCommand buildCreateOfferCommand(JustJoinOffer justJoinOffer) {
+        List contractTypes;
+        if (justJoinOffer.employmentType().equals(ContractType.UOP)) {
+            contractTypes = List.of(ContractType.UOP);
+        } else if (justJoinOffer.employmentType().equals(ContractType.B2B)) {
+            contractTypes = List.of(ContractType.B2B);
+        } else {
+            throw new RuntimeException("Unsupported deal type");
+        }
+        return CreateOfferCommand.builder()
+                .title(justJoinOffer.title())
+                .description(justJoinOffer.slug())
+                .minSalary(convertMinSalary())
+                .maxSalary(convertMaxSalary())
+                .contractTypes(contractTypes)
+                .build();
     }
-
-    private CreateOfferCommand buildCreateOfferCommand(JustJoinOffer justJoinOffer){
-        List<ContractType> contractTypes = switch (justJoinOffer.employmentType()){
-            case "permanent" -> List.of(ContractType.UOP);
-            case "b2b" -> List.of(ContractType.B2B);
-        };
-   return CreateOfferCommand.builder()
-           .title(justJoinOffer.title())
-           .description(justJoinOffer.slug())
-           .minSalary(convertMinSalary())
-           .maxSalary(convertMaxSalary())
-           .contractTypes(contractTypes)
-           .build();
 }

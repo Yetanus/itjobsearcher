@@ -11,7 +11,7 @@ import org.springframework.web.client.RestClient;
 public class NoFluffWebConfig {
 
     @Bean
-    public RestClient webClient(){
+    public RestClient NoFluffClient(){
         RestClient webClient = RestClient.builder()
                 .baseUrl("https://nofluffjobs.com/pl/")
                 .build();

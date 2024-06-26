@@ -1,9 +1,9 @@
 package pl.kf.itjobsearcher.business.external.justjoin.offer.dto;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+import org.springframework.web.client.RestClient;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import java.util.List;
 @Service
 public class JustJoinClient {
 
-    private final WebClient webClient;
+    private final RestClient webClient;
 
     @Autowired
-    public JustJoinClient(WebClient webClient){
+    public JustJoinClient(RestClient webClient){
         this.webClient = webClient;
     }
     /**
@@ -32,11 +32,11 @@ public class JustJoinClient {
     }
 
     private List<JustJoinOffer> getOffersFromWeb(){
-        Mono<JustJoinOffer> offers = webClient
+        ResponseEntity<JustJoinOffer> offers = webClient
                 .get()
-                .uri("https://justjoin.it/")
+                .uri("/all-locations/java")
                 .retrieve()
-                .bodyToMono(JustJoinOffer.class);
+                .toEntity(JustJoinOffer.class);
         return null;
     }
 

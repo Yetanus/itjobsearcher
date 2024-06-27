@@ -7,8 +7,10 @@ CREATE TABLE t_offer (
     salary_min                   BIGINT,
     salary_max                   BIGINT,
     required_experience_in_years BIGINT,
+    required_skills              TEXT          NOT NULL,
     title                        VARCHAR(255)  NOT NULL,
     description                  TEXT          NOT NULL,
+    data_source                  VARCHAR(100)  NOT NULL,
 
     PRIMARY KEY (uuid),
 

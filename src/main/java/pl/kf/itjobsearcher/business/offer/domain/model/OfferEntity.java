@@ -66,6 +66,7 @@ public class OfferEntity implements Serializable {
     @Column(name = "required_experience_in_years")
     private Long requiredExperienceInYears;
 
+    @NotBlank
     @Column(name = "required_skills")
     private String requiredSkills;
 

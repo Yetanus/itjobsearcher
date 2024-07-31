@@ -1,3 +1,4 @@
+/*
 package pl.kf.itjobsearcher.business.offer.domain.model;
 
 import jakarta.persistence.Column;
@@ -28,6 +29,7 @@ import java.util.UUID;
 public class OfferToTechnologyEntity {
     @NotNull
     @EmbeddedId
+    //TODO tutaj jest problem, zle zaimplementowanie dodawanie klucza zlozonego, na presce Damiana bd
     @Column(name = "offer_uuid", updatable = false)
     private UUID offerUuid;
 
@@ -49,3 +51,4 @@ public class OfferToTechnologyEntity {
     @Column(name = "technology_level")
     private OfferTechnologyLevel technologyLevel;
 }
+*/

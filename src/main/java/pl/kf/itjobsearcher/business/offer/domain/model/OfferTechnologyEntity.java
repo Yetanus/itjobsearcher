@@ -25,9 +25,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Embeddable
 @Table(name = "t_offer_technology")
-public class OfferTechnologyEntity implements Serializable {
+public class OfferTechnologyEntity {
 
     @Id
     @NotNull

@@ -15,17 +15,19 @@ import java.util.List;
 public class OfferUploaderService {
 
     private final OfferService offerService;
+    //TODO z klientami podobnie zrobic jak z konwerterem, ale bedzie to wymagac stworzenia interfejsu
+    // dla wszystkich klientow
     private final JustJoinClient justJoinClient;
     private final OfferConverter<JanuszSoftOffersWrapper> januszSoftOfferConverter;
     private final OfferConverter<JustJoinOffersWrapper> justJoinOffersOfferConverter;
 
     private void uploadOffersFromJanuszSoft(JanuszSoftOffersWrapper januszSoftOffersWrapper) {
-        List<CreateOfferCommand> createOfferCommand = januszSoftOfferConverter.convert(januszSoftOffersWrapper);
+        List<CreateOfferCommand> createOfferCommand = offerConverters.get(OfferSource.JANUSZ_SOFT).convert(januszSoftOffersWrapper);
         offerService.createOffers(createOfferCommand, OfferSource.JANUSZ_SOFT);
     }
 
     private void uploadOffersFromJustJoin(JustJoinOffersWrapper justJoinOffersWrapper){
-        List<CreateOfferCommand> createOfferCommands = justJoinOffersOfferConverter.convert(justJoinOffersWrapper);
+        List<CreateOfferCommand> createOfferCommands = offerConverters.get(OfferSource.JUST_JOIN).convert(justJoinOffersWrapper);
         offerService.createOffers(createOfferCommands, OfferSource.JUST_JOIN);
     }
 

@@ -14,7 +14,7 @@ public record OfferMapper() {
         }
         return OfferQuery.builder()
                 .uuid(offerEntity.getUuid())
-                .contractType(offerEntity.getContractType())
+                //.contractType(offerEntity.getContractType())
                 .salaryMin(offerEntity.getSalaryMin())
                 .salaryMax(offerEntity.getSalaryMax())
                 .requiredExperienceInYears(offerEntity.getRequiredExperienceInYears())
@@ -27,7 +27,7 @@ public record OfferMapper() {
     public static OfferEntity mapToOfferEntity(CreateOfferCommand createOfferCommand){
         Objects.requireNonNull(createOfferCommand);
         return OfferEntity.builder()
-                .contractType(createOfferCommand.contractTypes())
+               // .contractType(createOfferCommand.contractTypes())
                 .salaryMin(createOfferCommand.minSalary())
                 .salaryMax(createOfferCommand.maxSalary())
                 .title(createOfferCommand.title())

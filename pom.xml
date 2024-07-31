@@ -9,7 +9,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<groupId>pl.kf</groupId>
@@ -19,9 +18,10 @@
 	<description>App to find perfect IT job </description>
 
 	<properties>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 		<apache.commons.lang.version>3.14.0</apache.commons.lang.version>
 		<apache.commons.collections.version>4.4</apache.commons.collections.version>
+		<flyway.version>10.15.0</flyway.version>
 	</properties>
 
 	<dependencies>
@@ -66,6 +66,13 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
+			<version>${flyway.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-database-postgresql</artifactId>
+			<version>${flyway.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- TESTS -->
@@ -136,6 +143,15 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<configuration>
+					<configFiles>
+						<configFile>${project.basedir}/src/main/resources/database/flyway-config/flyway-local.conf</configFile>
+					</configFiles>
 				</configuration>
 			</plugin>
 		</plugins>

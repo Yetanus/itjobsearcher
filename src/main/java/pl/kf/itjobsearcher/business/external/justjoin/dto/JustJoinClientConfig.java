@@ -8,12 +8,12 @@ import org.springframework.web.client.RestClient;
  * Configuration class for {@link RestClient} used for communication with JustJoinIT website.
  */
 @Configuration
-public class JustJoinWebConfig {
+public class JustJoinClientConfig {
     @Bean
-    public RestClient JustJoinWebClient(){
+    public JustJoinClient justJoinClient(){
         RestClient webClient = RestClient.builder()
-                .baseUrl("https://justjoin.it/")
+                .baseUrl("localhost:3000")
                 .build();
-        return webClient;
+        return new JustJoinClient(webClient);
     }
 }

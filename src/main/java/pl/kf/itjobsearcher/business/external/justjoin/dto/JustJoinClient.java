@@ -1,8 +1,7 @@
 package pl.kf.itjobsearcher.business.external.justjoin.dto;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 import java.util.List;
@@ -10,15 +9,11 @@ import java.util.List;
 /**
  * Class ,which uses {@link RestClient} to retrive data from JustJoinIT website.
  */
-@Service
+@RequiredArgsConstructor
 public class JustJoinClient {
 
-    private final RestClient justJoinWebClient;
+    private final RestClient restClient;
 
-    @Autowired
-    public JustJoinClient(RestClient justJoinWebClient){
-        this.justJoinWebClient = justJoinWebClient;
-    }
     /**
      * This method is responsible for fetch all offers from JustJointIT job board.
      *
@@ -32,9 +27,9 @@ public class JustJoinClient {
     }
 
     private List<JustJoinOffer> getOffersFromWeb(){
-        ResponseEntity<JustJoinOffer> offers = justJoinWebClient
+        ResponseEntity<JustJoinOffer> offers = restClient
                 .get()
-                .uri("/all-locations/java")
+                .uri("/")
                 .retrieve()
                 .toEntity(JustJoinOffer.class);
         return null;

@@ -13,21 +13,21 @@ import java.util.List;
 
 @RequiredArgsConstructor
 public class OfferUploaderService {
-
+    //TODO zeby uniknac wpisywania podwojnie i clienta i convertera trzeba
+    //TODO fabryka/fabrykaabstrakcyjna + strategia zeby wybrac clienta i convertera
+    //TODO ma byc tu jedna metoda finalnie - uploadOffers, ma wywolac fabryke/strategie i zuplodowac dane do bazy
     private final OfferService offerService;
-    //TODO z klientami podobnie zrobic jak z konwerterem, ale bedzie to wymagac stworzenia interfejsu
-    // dla wszystkich klientow
     private final JustJoinClient justJoinClient;
     private final OfferConverter<JanuszSoftOffersWrapper> januszSoftOfferConverter;
     private final OfferConverter<JustJoinOffersWrapper> justJoinOffersOfferConverter;
 
     private void uploadOffersFromJanuszSoft(JanuszSoftOffersWrapper januszSoftOffersWrapper) {
-        List<CreateOfferCommand> createOfferCommand = offerConverters.get(OfferSource.JANUSZ_SOFT).convert(januszSoftOffersWrapper);
+        List<CreateOfferCommand> createOfferCommand = januszSoftOfferConverter.convert(januszSoftOffersWrapper);
         offerService.createOffers(createOfferCommand, OfferSource.JANUSZ_SOFT);
     }
 
     private void uploadOffersFromJustJoin(JustJoinOffersWrapper justJoinOffersWrapper){
-        List<CreateOfferCommand> createOfferCommands = offerConverters.get(OfferSource.JUST_JOIN).convert(justJoinOffersWrapper);
+        List<CreateOfferCommand> createOfferCommands = justJoinOffersOfferConverter.convert(justJoinOffersWrapper);
         offerService.createOffers(createOfferCommands, OfferSource.JUST_JOIN);
     }
 

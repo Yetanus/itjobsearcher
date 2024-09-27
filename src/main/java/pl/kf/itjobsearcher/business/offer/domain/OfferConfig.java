@@ -25,11 +25,11 @@ public class OfferConfig {
         OfferService offerService = new OfferService(
                 offerRepository
         );
-        Map<OfferSource, ? extends OfferConverter<? extends Record>> offerConverterMap = Map.of(
-                OfferSource.JUST_JOIN, new JustJoinToOfferConverter(),
-                OfferSource.JANUSZ_SOFT, new JanuszSoftOfferConverter());
-        OfferUploaderService offerUploaderService = new OfferUploaderService(offerService,justJoinClient, offerConverterMap);
-        //TODO pamietac o nullu
-        return new OfferFacadeAdapter(offerService, null);
+
+        JanuszSoftOfferConverter januszSoftOfferConverter = new JanuszSoftOfferConverter();
+        JustJoinToOfferConverter justJoinToOfferConverter = new JustJoinToOfferConverter();
+
+        OfferUploaderService offerUploaderService = new OfferUploaderService(offerService,justJoinClient, januszSoftOfferConverter,justJoinToOfferConverter);
+        return new OfferFacadeAdapter(offerService, offerUploaderService);
     }
 }

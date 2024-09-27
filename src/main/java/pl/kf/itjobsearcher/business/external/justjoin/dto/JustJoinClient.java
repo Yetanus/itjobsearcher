@@ -3,6 +3,7 @@ package pl.kf.itjobsearcher.business.external.justjoin.dto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClient;
+import pl.kf.itjobsearcher.business.offer.dto.OfferClient;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * Class ,which uses {@link RestClient} to retrive data from JustJoinIT website.
  */
 @RequiredArgsConstructor
-public class JustJoinClient {
+public class JustJoinClient implements OfferClient {
 
     private final RestClient restClient;
 
@@ -26,7 +27,7 @@ public class JustJoinClient {
                 .build();
     }
 
-    private List<JustJoinOffer> getOffersFromWeb(){
+    public List<JustJoinOffer> getOffersFromWeb(){
         ResponseEntity<JustJoinOffer> offers = restClient
                 .get()
                 .uri("/")

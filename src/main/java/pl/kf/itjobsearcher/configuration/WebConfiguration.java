@@ -1,22 +1,18 @@
 package pl.kf.itjobsearcher.configuration;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration;
 
 @Configuration
-public class WebConfiguration {
-
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:4200")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE");
-            }
-        };
+public class WebConfiguration extends DelegatingWebMvcConfiguration {
+    //TODO zdefiniowac dozwolone headery, doczytac o nich
+    @Override
+    protected void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .maxAge(3600L)
+                .allowedHeaders("*")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
     }
 }

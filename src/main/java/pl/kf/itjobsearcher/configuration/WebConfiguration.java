@@ -10,9 +10,9 @@ public class WebConfiguration extends DelegatingWebMvcConfiguration {
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")
                 .maxAge(3600L)
-                .allowedHeaders("*")
+                .allowedOrigins("*")
+                .allowedHeaders("Content-Type", "Authorization","Origin", "Accept")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
     }
 }

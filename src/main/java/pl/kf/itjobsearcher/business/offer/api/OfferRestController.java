@@ -3,6 +3,7 @@ package pl.kf.itjobsearcher.business.offer.api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ public class OfferRestController {
 
     private final OfferFacade offerFacade;
 
+    @CrossOrigin(originPatterns = "localhost:4200")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public FindAllOffersResponse findAllOffers() {

@@ -9,11 +9,13 @@ import org.springframework.web.client.RestClient;
  */
 @Configuration
 public class JustJoinClientConfig {
+
     @Bean
     public JustJoinClient justJoinClient(){
         RestClient webClient = RestClient.builder()
                 .baseUrl("localhost:3000")
                 .build();
+
         return new JustJoinClient(webClient);
     }
 }

@@ -9,6 +9,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 public class JustJoinToOfferConverter implements OfferConverter<JustJoinOffersWrapper> {
+
     @Override
     public List<CreateOfferCommand> convert(JustJoinOffersWrapper justJoinOffersWrapper) {
         return justJoinOffersWrapper.offers()

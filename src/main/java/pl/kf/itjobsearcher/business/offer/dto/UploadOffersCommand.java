@@ -6,4 +6,4 @@ import pl.kf.itjobsearcher.business.offer.domain.model.OfferSource;
 @Builder
 public record UploadOffersCommand(
         OfferSource offerSource
-) {}
+) { }

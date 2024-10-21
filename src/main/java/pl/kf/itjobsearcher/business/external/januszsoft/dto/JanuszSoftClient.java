@@ -8,10 +8,11 @@ import pl.kf.itjobsearcher.business.offer.dto.OfferClient;
 import java.util.List;
 
 /**
- * Class ,which uses {@link RestClient} to retrive data from JanuszSoft website.
+ * Class ,which uses {@link RestClient} to retrieve data from JanuszSoft website.
  */
 @RequiredArgsConstructor
-public class JanuszSoftClient implements OfferClient {
+public class JanuszSoftClient implements OfferClient<JanuszSoftOffer> {
+
     private final RestClient restClient;
 
     @Override
@@ -20,15 +21,5 @@ public class JanuszSoftClient implements OfferClient {
         return JanuszSoftOffersWrapper.builder()
                 .offers(offers)
                 .build();
-    }
-
-    @Override
-    public List<JanuszSoftOffer> getOffersFromWeb() {
-        ResponseEntity<JanuszSoftOffer> offers = restClient
-                .get()
-                .uri("/")
-                .retrieve()
-                .toEntity(JanuszSoftOffer.class);
-        return null;
     }
 }

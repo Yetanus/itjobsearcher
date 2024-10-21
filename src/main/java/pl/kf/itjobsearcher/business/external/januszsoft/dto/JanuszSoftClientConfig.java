@@ -6,11 +6,12 @@ import org.springframework.web.client.RestClient;
 
 @Configuration
 public class JanuszSoftClientConfig {
+
     @Bean
     public JanuszSoftClient januszSoftClient(){
-        RestClient webClient = RestClient.builder()
-                .baseUrl("localhost:3000")
+        RestClient webClient = RestClient.builder().baseUrl("localhost:3000")
                 .build();
+
         return new JanuszSoftClient(webClient);
     }
 }

@@ -24,6 +24,7 @@ public class OfferService {
         List<OfferEntity> entities = createOfferCommands.stream()
                 .map(OfferMapper::mapToOfferEntity)
                 .toList();
+
         offerRepository.saveAll(entities);
     }
 
@@ -40,19 +41,4 @@ public class OfferService {
                 .filter(Objects::nonNull)
                 .toList();
     }
-
-    public void updateOffer(Long offerId, OfferEntity offerEntity){
-        offerRepository.findAll()
-                .stream()
-                .toList();
-        // todo will be implemented
-
-    }
-
-    public void deleteOffer(Long id)
-    {
-        OfferEntity offerEntity = OfferEntity.builder().build();
-        offerRepository.delete(offerEntity);
-    }
-
 }

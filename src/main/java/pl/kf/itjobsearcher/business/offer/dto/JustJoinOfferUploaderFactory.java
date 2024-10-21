@@ -10,12 +10,12 @@ import pl.kf.itjobsearcher.business.offer.domain.service.converter.OfferConverte
 import java.util.List;
 
 @RequiredArgsConstructor
-public
-class JustJoinOfferUploaderFactory implements OfferFactory {
+public class JustJoinOfferUploaderFactory implements OfferFactory {
     private final OfferService offerService;
     private final JustJoinClient justJoinClient;
     private final OfferConverter<JustJoinOffersWrapper> justJoinOfferConverter;
     private final JustJoinOffersWrapper justJoinOffersWrapper;
+
     @Override
     public void uploadOffer() {
         List<CreateOfferCommand> createOfferCommand = justJoinOfferConverter.convert(justJoinOffersWrapper);

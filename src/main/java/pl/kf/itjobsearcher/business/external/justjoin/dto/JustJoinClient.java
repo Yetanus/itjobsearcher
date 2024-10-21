@@ -11,29 +11,14 @@ import java.util.List;
  * Class ,which uses {@link RestClient} to retrive data from JustJoinIT website.
  */
 @RequiredArgsConstructor
-public class JustJoinClient implements OfferClient {
+public class JustJoinClient implements OfferClient<JustJoinOffer> {
 
     private final RestClient restClient;
 
-    /**
-     * This method is responsible for fetch all offers from JustJointIT job board.
-     *
-     * @return {@link JustJoinOffersWrapper} that contains all offers available on JustJoinIT job board
-     */
     public JustJoinOffersWrapper fetchOffers() {
         List<JustJoinOffer> offers = List.of();
         return JustJoinOffersWrapper.builder()
                 .offers(offers)
                 .build();
     }
-
-    public List<JustJoinOffer> getOffersFromWeb(){
-        ResponseEntity<JustJoinOffer> offers = restClient
-                .get()
-                .uri("/")
-                .retrieve()
-                .toEntity(JustJoinOffer.class);
-        return null;
-    }
-
 }

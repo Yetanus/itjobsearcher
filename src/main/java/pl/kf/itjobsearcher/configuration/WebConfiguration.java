@@ -6,7 +6,6 @@ import org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfigu
 
 @Configuration
 public class WebConfiguration extends DelegatingWebMvcConfiguration {
-    //TODO zdefiniowac dozwolone headery, doczytac o nich
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
